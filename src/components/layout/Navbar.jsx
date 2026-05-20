@@ -107,20 +107,17 @@ function WalletMenu({ address, isPremium }) {
 // Edit Dropdown Component
 function EditDropdown() {
   const [isOpen, setIsOpen] = useState(false);
-  const [locked, setLocked] = useState(false);
   const location = useLocation();
   const shouldReset = location.pathname;
 
   useEffect(() => {
     queueMicrotask(() => {
       setIsOpen(false);
-      setLocked(false);
     });
   }, [shouldReset]);
   useEffect(() => {
     function handleCloseAll() {
       setIsOpen(false);
-      setLocked(false);
     }
 
     window.addEventListener("closeAllDropdowns", handleCloseAll);
@@ -140,16 +137,13 @@ function EditDropdown() {
   return (
     <div
       className="relative"
-      onMouseEnter={() => !locked && setIsOpen(true)}
-      onMouseLeave={() => {
-        if (!locked) setIsOpen(false);
-      }}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
     >
       <button
         onClick={() => {
           window.dispatchEvent(new Event("closeAllDropdowns"));
           setIsOpen((prev) => !prev);
-          setLocked((prev) => !prev);
         }}
         className="flex items-center gap-1.5 text-sm font-medium text-zinc-400 hover:text-white transition-colors whitespace-nowrap group cursor-pointer">
         Edit
@@ -172,7 +166,6 @@ function EditDropdown() {
                   to={tool.path}
                   onClick={() => {
                     setIsOpen(false);
-                    setLocked(false);
                   }}
                   className={`block px-4 py-2 text-sm transition-all ${location.pathname === tool.path ? "text-white bg-white/10" : "text-zinc-400 hover:text-white hover:bg-white/5"}`}
                 >
@@ -190,20 +183,17 @@ function EditDropdown() {
 // Convert Dropdown Component
 function ConvertDropdown() {
   const [isOpen, setIsOpen] = useState(false);
-  const [locked, setLocked] = useState(false);
   const location = useLocation();
   const shouldReset = location.pathname;
 
   useEffect(() => {
     queueMicrotask(() => {
       setIsOpen(false);
-      setLocked(false);
     });
   }, [shouldReset]);
   useEffect(() => {
     function handleCloseAll() {
       setIsOpen(false);
-      setLocked(false);
     }
 
     window.addEventListener("closeAllDropdowns", handleCloseAll);
@@ -220,16 +210,13 @@ function ConvertDropdown() {
   return (
     <div
       className="relative"
-      onMouseEnter={() => !locked && setIsOpen(true)}
-      onMouseLeave={() => {
-        if (!locked) setIsOpen(false);
-      }}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
     >
       <button
         onClick={() => {
           window.dispatchEvent(new Event("closeAllDropdowns"));
           setIsOpen((prev) => !prev);
-          setLocked((prev) => !prev);
         }}
         className="flex items-center gap-1.5 text-sm font-medium text-zinc-400 hover:text-white transition-colors whitespace-nowrap group cursor-pointer">
         Convert
@@ -252,7 +239,6 @@ function ConvertDropdown() {
                   to={tool.path}
                   onClick={() => {
                     setIsOpen(false);
-                    setLocked(false);
                   }}
                   className={`block px-4 py-2 text-sm transition-all ${location.pathname === tool.path ? "text-white bg-white/10" : "text-zinc-400 hover:text-white hover:bg-white/5"}`}
                 >
@@ -270,20 +256,17 @@ function ConvertDropdown() {
 // Optimize Dropdown Component
 function OptimizeDropdown() {
   const [isOpen, setIsOpen] = useState(false);
-  const [locked, setLocked] = useState(false);
   const location = useLocation();
   const shouldReset = location.pathname;
 
   useEffect(() => {
     queueMicrotask(() => {
       setIsOpen(false);
-      setLocked(false);
     });
   }, [shouldReset]);
   useEffect(() => {
     function handleCloseAll() {
       setIsOpen(false);
-      setLocked(false);
     }
 
     window.addEventListener("closeAllDropdowns", handleCloseAll);
@@ -301,16 +284,13 @@ function OptimizeDropdown() {
   return (
     <div
       className="relative"
-      onMouseEnter={() => !locked && setIsOpen(true)}
-      onMouseLeave={() => {
-        if (!locked) setIsOpen(false);
-      }}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
     >
       <button
         onClick={() => {
           window.dispatchEvent(new Event("closeAllDropdowns"));
           setIsOpen((prev) => !prev);
-          setLocked((prev) => !prev);
         }}
         className="flex items-center gap-1.5 text-sm font-medium text-zinc-400 hover:text-white transition-colors whitespace-nowrap group cursor-pointer">
         Optimize
@@ -333,7 +313,6 @@ function OptimizeDropdown() {
                   to={tool.path}
                   onClick={() => {
                     setIsOpen(false);
-                    setLocked(false);
                   }}
                   className={`block px-4 py-2 text-sm transition-all ${location.pathname === tool.path ? "text-white bg-white/10" : "text-zinc-400 hover:text-white hover:bg-white/5"}`}
                 >
@@ -351,20 +330,17 @@ function OptimizeDropdown() {
 // Security Dropdown Component
 function SecurityDropdown() {
   const [isOpen, setIsOpen] = useState(false);
-  const [locked, setLocked] = useState(false);
   const location = useLocation();
   const shouldReset = location.pathname;
 
   useEffect(() => {
     queueMicrotask(() => {
       setIsOpen(false);
-      setLocked(false);
     });
   }, [shouldReset]);
   useEffect(() => {
     function handleCloseAll() {
       setIsOpen(false);
-      setLocked(false);
     }
 
     window.addEventListener("closeAllDropdowns", handleCloseAll);
@@ -380,16 +356,13 @@ function SecurityDropdown() {
   return (
     <div
       className="relative"
-      onMouseEnter={() => !locked && setIsOpen(true)}
-      onMouseLeave={() => {
-        if (!locked) setIsOpen(false);
-      }}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
     >
       <button
         onClick={() => {
           window.dispatchEvent(new Event("closeAllDropdowns"));
           setIsOpen((prev) => !prev);
-          setLocked((prev) => !prev);
         }}
         className="flex items-center gap-1.5 text-sm font-medium text-zinc-400 hover:text-white transition-colors whitespace-nowrap group cursor-pointer">
         Security
@@ -412,7 +385,6 @@ function SecurityDropdown() {
                   to={tool.path}
                   onClick={() => {
                     setIsOpen(false);
-                    setLocked(false);
                   }}
                   className={`block px-4 py-2 text-sm transition-all ${location.pathname === tool.path ? "text-white bg-white/10" : "text-zinc-400 hover:text-white hover:bg-white/5"
                     }`}
